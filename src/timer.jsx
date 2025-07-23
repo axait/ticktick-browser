@@ -23,7 +23,7 @@ function Timer() {
                 >Stop wasting your time. Go and learn for Revolute.
                 </h1>
                 <button
-                className="h-[3rem] w-[8rem] 
+                className="h-[3.5rem] w-[9rem] 
                 rounded-[10px] border-2 border-[black]
                 bg-[#de4b4b] text-black
                 animate__rubberBand
