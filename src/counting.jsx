@@ -49,9 +49,9 @@ function Counting() {
         }, [months]
     )
     return (
-<div
+                <div
                 className="flex flex-row content-around
-                w-[100] gap-2
+                gap-2
                 "
                 >
                     <div

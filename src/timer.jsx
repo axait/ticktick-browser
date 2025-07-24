@@ -6,6 +6,7 @@ function Timer() {
         <div
         className="min-h-screen
         flex flex-col items-center justify-center
+        max-w-screen
         "
         >
             <div
@@ -13,6 +14,8 @@ function Timer() {
             md:mx-auto md:mt-20 md:p-8 rounded-xl
             md:w-[768px] h-[450px]
             -translate-y-20
+            max-w-screen
+            mx-auto
             "
             >
                 <h1
