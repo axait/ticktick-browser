@@ -23,7 +23,7 @@ function Timer() {
                 tracking-wide
                 underline decoration-[red]-900
                 "
-                >Stop wasting your time. Go and learn for Revolute.
+                >Stop wasting your time. Go and learn to Revolute.
                 </h1>
                 <button
                 className="h-[3.5rem] w-[9rem] 
