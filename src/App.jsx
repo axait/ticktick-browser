@@ -1,5 +1,3 @@
-// import { useState } from 'react'
-import './App.css'
 import Background from "./background.jsx"
 import Timer from "./timer.jsx"
 

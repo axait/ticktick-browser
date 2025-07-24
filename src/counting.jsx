@@ -113,7 +113,8 @@ function Counting() {
 }
 
 function MsMeter({setSeconds}){
-    console.log("ms")
+    // this component is created separtly bcz of its frquent re-rendering.
+    // console.log("ms")
     const [milliSeconds, setMilliSeconds ] = useState(0)
 
     useEffect(
@@ -160,7 +161,11 @@ function SecondsMeter(props){
         h-[105px] w-[100px] text-[22px]
         "
         >
-            <span>{props.seconds}</span>
+            <span
+            className="
+            text-[#e24848]
+            "
+            >{props.seconds}</span>
             <span>Seconds</span>
         </div>
     )
