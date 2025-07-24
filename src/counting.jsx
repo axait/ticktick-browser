@@ -101,7 +101,9 @@ function Counting() {
                      h-[105px] w-[80px] text-[22px]
                     "
                     >
-                        <span>{minutes}</span>
+                        <span
+                        className={minutes!=0 ? "text-[#e24848]" : "" }
+                        >{minutes}</span>
                         <span>min</span>
                     </div>
                     
