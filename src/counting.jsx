@@ -128,10 +128,10 @@ function MsMeter({setSeconds}){
                                     setSeconds(sec => sec+1);
                                     return prev-1000;
                                 }
-                                return prev +91
+                                return prev +96
                             }
                         )
-                } , 91
+                } , 80
             )
             return () => { clearInterval(interval) }
          }, []
