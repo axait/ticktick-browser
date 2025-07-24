@@ -1,4 +1,4 @@
-# TuckTick-Browser
+# TickTick-Browser
 
 It developed to be used as default kath for browser home page which start timer when hometab is opened. 
 
