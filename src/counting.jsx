@@ -173,5 +173,8 @@ function SecondsMeter(props){
     )
 }
 
+SecondsMeter.whyDidYouRender = true
+Counting.whyDidYouRender = true
+
 
 export default Counting

@@ -1,3 +1,4 @@
+import React from "react"
 import Background from "./background.jsx"
 import Timer from "./timer.jsx"
 
@@ -11,5 +12,8 @@ function App() {
     </>
   )
 }
+
+
+React.memo(App)
 
 export default App
