@@ -1,4 +1,5 @@
 import Background from "./background.jsx"
+import ResetTimer from "./ResetTimer.js"
 import Timer from "./timer.jsx"
 
 function App() {
@@ -8,6 +9,8 @@ function App() {
     <>
         {/* <Background /> */}
         <Timer />
+        <ResetTimer />
+
     </>
   )
 }
