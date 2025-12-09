@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const RemainingTimeInYear = ({ text }: { text: string }) => {
+const RemainingTimeInYear = ({ text, setVisiblityFn }: { text: string; setVisiblityFn: (v: boolean) => void }) => {
     const [visibilityState, setVisibilityState] = useState(true);
 
     useEffect(() => {
@@ -8,6 +8,7 @@ const RemainingTimeInYear = ({ text }: { text: string }) => {
 
         const timer = setTimeout(() => {
             setVisibilityState(false);
+            setVisiblityFn(false);
         }, 2000);
 
         return () => clearTimeout(timer);

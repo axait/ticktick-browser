@@ -4,7 +4,7 @@ import RemainingTimeInYear from "./RemainingTimeInYear.js";
 
 function Timer() {
     const [remainingTimeInYear, setRemainingTimeInYear] = useState('')
-    const [isVisibility, setIsVisibility] = useState(false);
+    const [isVisibility, setIsVisibility] = useState(true);
 
     useEffect(
         () => {
@@ -82,7 +82,7 @@ function Timer() {
 
                 <Counting />
 
-                {isVisibility && <RemainingTimeInYear text={remainingTimeInYear} />}
+                {isVisibility && <RemainingTimeInYear text={remainingTimeInYear} setVisiblityFn={setIsVisibility} />}
 
 
             </div>
