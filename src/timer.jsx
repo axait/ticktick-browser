@@ -82,8 +82,8 @@ function Timer() {
                 <button
                     className="h-[3.5rem] w-[9rem] 
                 rounded-[10px] border-2 border-[black]
-                bg-[#cc4646] 
-                hover:bg-[#da4d4d] 
+                bg-[hsl(0,45%,50%)] 
+                hover:bg-[hsl(0,50%,54%)] 
                 text-black
                 animate__rubberBand
                 "

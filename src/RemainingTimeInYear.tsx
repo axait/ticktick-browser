@@ -3,16 +3,16 @@ import React, { useEffect, useState } from "react";
 const RemainingTimeInYear = ({ text, setVisiblityFn }: { text: string; setVisiblityFn: (v: boolean) => void }) => {
     const [visibilityState, setVisibilityState] = useState(true);
 
-    useEffect(() => {
-        if (!visibilityState) return;
+    // useEffect(() => {
+    //     if (!visibilityState) return;
 
-        const timer = setTimeout(() => {
-            setVisibilityState(false);
-            setVisiblityFn(false);
-        }, 15000);
+    //     const timer = setTimeout(() => {
+    //         setVisibilityState(false);
+    //         setVisiblityFn(false);
+    //     }, 15000);
 
-        return () => clearTimeout(timer);
-    }, [visibilityState]);
+    //     return () => clearTimeout(timer);
+    // }, [visibilityState]);
 
     return (
         <>
@@ -23,7 +23,7 @@ const RemainingTimeInYear = ({ text, setVisiblityFn }: { text: string; setVisibl
                 text-[16px] font-light
                 text-white
                 rounded-sm shadow-lg
-                translate-x-[-8%]
+                md:translate-x-[-12%]
                 px-4 py-2 
                 transition-opacity duration-200
                 ${visibilityState ?
