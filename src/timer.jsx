@@ -4,6 +4,7 @@ import RemainingTimeInYear from "./RemainingTimeInYear.js";
 
 function Timer() {
     const [remainingTimeInYear, setRemainingTimeInYear] = useState('')
+    const [remainingTimeInYearReactNode, setRemainingTimeInYearReactNode] = useState('')
     const [isVisibility, setIsVisibility] = useState(true);
 
     useEffect(
@@ -34,12 +35,23 @@ function Timer() {
             (timeLeft % (1000 * 60)) / 1000
         );
 
+
         setRemainingTimeInYear(
             `⏳ Time left this year:\n\n` +
             `${days} Days\n` +
             `${hours} Hours\n` +
             `${minutes} Minutes\n` +
             `${seconds} Seconds`
+        );
+
+        setRemainingTimeInYearReactNode(
+            <>
+                <b>⏳ Time left this year:</b> &nbsp;
+                <b className="text-yellow-500">{days}</b> &nbsp;Days &nbsp;
+                <b className="text-yellow-500">{hours}</b> &nbsp;Hours &nbsp;
+                <b className="text-yellow-500">{minutes}</b> &nbsp;Minutes &nbsp;
+                <b className="text-yellow-500">{seconds}</b> &nbsp;Seconds &nbsp;
+            </>
         );
     }
 
@@ -75,14 +87,14 @@ function Timer() {
                 text-black
                 animate__rubberBand
                 "
-                    onClick={() => { calculateRemainingTimeInYearFn();setIsVisibility(!isVisibility) }}
+                    onClick={() => { calculateRemainingTimeInYearFn(); setIsVisibility(!isVisibility) }}
                     title={remainingTimeInYear}
 
                 >Year Ends</button>
 
                 <Counting />
 
-                {isVisibility && <RemainingTimeInYear text={remainingTimeInYear} setVisiblityFn={setIsVisibility} />}
+                {isVisibility && <RemainingTimeInYear text={remainingTimeInYearReactNode} setVisiblityFn={setIsVisibility} />}
 
 
             </div>

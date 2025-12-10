@@ -9,7 +9,7 @@ const RemainingTimeInYear = ({ text, setVisiblityFn }: { text: string; setVisibl
         const timer = setTimeout(() => {
             setVisibilityState(false);
             setVisiblityFn(false);
-        }, 7000);
+        }, 15000);
 
         return () => clearTimeout(timer);
     }, [visibilityState]);
@@ -23,7 +23,7 @@ const RemainingTimeInYear = ({ text, setVisiblityFn }: { text: string; setVisibl
                 text-[16px] font-light
                 text-white
                 rounded-sm shadow-lg
-                translate-x-[-5%]
+                translate-x-[-8%]
                 px-4 py-2 
                 transition-opacity duration-200
                 ${visibilityState ?
