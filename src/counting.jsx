@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTimerStore } from "./useTimerStore";
 
 // use zustand with persistance in local storage to save time in browser
@@ -15,7 +15,7 @@ function Counting() {
                 setMinutes(min => min + 1)
                 setSeconds(() => 0)
             }
-        }, [seconds]
+        }, [seconds, setMinutes, setSeconds]
     )
     useEffect(
         () => {
@@ -23,7 +23,7 @@ function Counting() {
                 setHours(hour => hour + 1)
                 setMinutes(() => 0)
             }
-        }, [minutes]
+        }, [minutes, setHours, setMinutes]
     )
     useEffect(
         () => {
@@ -31,7 +31,7 @@ function Counting() {
                 setDays(day => day + 1)
                 setHours(() => 0)
             }
-        }, [hours]
+        }, [hours, setDays, setHours]
     )
     useEffect(
         () => {
@@ -39,7 +39,7 @@ function Counting() {
                 setMonths(month => month + 1)
                 setDays(() => 0)
             }
-        }, [days]
+        }, [days, setDays, setMonths]
     )
     useEffect(
         () => {
@@ -47,7 +47,7 @@ function Counting() {
                 setYears(year => year + 1)
                 setMonths(() => 0)
             }
-        }, [months]
+        }, [months, setMonths, setYears]
     )
     return (
         <div
@@ -62,7 +62,9 @@ function Counting() {
                      h-[105px] w-[80px] text-[22px]
                     "
             >
-                <span>{years}</span>
+                <span
+                    className={years !== 0 ? "text-[#e24848]" : ""}
+                >{years}</span>
                 <span>Year</span>
             </div>
             <div
@@ -72,7 +74,9 @@ function Counting() {
                      h-[105px] w-[90px] text-[22px]
                     "
             >
-                <span>{months}</span>
+                <span
+                    className={months !== 0 ? "text-[#e24848]" : ""}
+                >{months}</span>
                 <span>Months</span>
             </div>
             <div
@@ -82,7 +86,9 @@ function Counting() {
                      h-[105px] w-[80px] text-[22px]
                     "
             >
-                <span>{days}</span>
+                <span
+                    className={days !== 0 ? "text-[#e24848]" : ""}
+                >{days}</span>
                 <span>Days</span>
             </div>
             <div
@@ -92,7 +98,9 @@ function Counting() {
                      h-[105px] w-[80px] text-[22px]
                     "
             >
-                <span>{hours}</span>
+                <span
+                    className={hours !== 0 ? "text-[#e24848]" : ""}
+                >{hours}</span>
                 <span>Hours</span>
             </div>
             <div
@@ -103,7 +111,7 @@ function Counting() {
                     "
             >
                 <span
-                    className={minutes != 0 ? "text-[#e24848]" : ""}
+                    className={minutes !== 0 ? "text-[#e24848]" : ""}
                 >{minutes}</span>
                 <span>min</span>
             </div>
@@ -135,7 +143,7 @@ function MsMeter({ setSeconds }) {
             }, 80
             )
             return () => { clearInterval(interval) }
-        }, []
+        }, [setSeconds]
     )
     return (
         <div
