@@ -1,3 +1,5 @@
+/** biome-ignore-all lint/a11y/useButtonType: <explanation> */
+/** biome-ignore-all lint/correctness/useExhaustiveDependencies: <explanation> */
 import React, { useEffect, useState } from "react";
 import Counting from "./counting.jsx"
 import RemainingTimeInYear from "./RemainingTimeInYear.js";
@@ -15,6 +17,7 @@ function Timer() {
 
     const calculateRemainingTimeInYearFn = () => {
 
+        // biome-ignore lint/complexity/useDateNow: <explanation>
         const now = new Date().getTime();
 
         const currentYear = new Date().getFullYear();

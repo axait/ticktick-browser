@@ -1,7 +1,23 @@
-import React from 'react'
+/** biome-ignore-all lint/a11y/noStaticElementInteractions: <explanation> */
+/** biome-ignore-all lint/correctness/useExhaustiveDependencies: <explanation> */
+/** biome-ignore-all lint/a11y/useKeyWithClickEvents: <explanation> */
+import React, { useEffect, useState } from 'react'
 import { useTimerStore } from './useTimerStore';
+import { useDynamicConfig, useStatsigClient } from '@statsig/react-bindings';
 
 const ResetTimer = () => {
+
+    const { client } = useStatsigClient();
+    
+    const [isResetTimerEnabled, setIsResetTimerEnabled] = useState<boolean>(false)
+    const config = useDynamicConfig("is_reset_timer_enabled");
+    useEffect(() => {
+        client.initializeAsync();
+        setIsResetTimerEnabled(config.get("value", true));
+        console.log(isResetTimerEnabled);
+        
+    },[])
+
     const {
         setSeconds,
         setMinutes,
@@ -24,18 +40,18 @@ const ResetTimer = () => {
 
     return (
         <>
-            <div
+            {isResetTimerEnabled && <div
                 className="
                 fixed bottom-5 right-5
                 bg-[hsl(216,30%,20%)]
                 hover:bg-[hsl(215,33%,23%)]
                 p-2 rounded-full
                 "
-                title='hello'
+                title='Reset Timer btn'
                 onClick={resetTimeFn}
             >
-                <svg viewBox="0 0 24 24" height="24" width="24"
-                >
+                <svg viewBox="0 0 24 24" height="24" width="24">
+                    <title>Reset Timer</title>
                     <path
                         fill="#fff"
                         stroke="white"
@@ -44,9 +60,10 @@ const ResetTimer = () => {
                     </path>
                 </svg>
 
-            </div>
+            </div>}
         </>
     )
 }
 
+ResetTimer.whyDidYouRender = true;
 export default ResetTimer

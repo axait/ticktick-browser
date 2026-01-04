@@ -1,3 +1,4 @@
+import './wdyr';
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
@@ -10,6 +11,7 @@ Sentry.init({
   // For example, automatic IP address collection on events
   sendDefaultPii: true
 });
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
