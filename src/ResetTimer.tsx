@@ -1,7 +1,7 @@
 /** biome-ignore-all lint/a11y/noStaticElementInteractions: <explanation> */
 /** biome-ignore-all lint/correctness/useExhaustiveDependencies: <explanation> */
 /** biome-ignore-all lint/a11y/useKeyWithClickEvents: <explanation> */
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTimerStore } from './useTimerStore';
 import { useDynamicConfig, useStatsigClient } from '@statsig/react-bindings';
 
@@ -44,6 +44,8 @@ const ResetTimer = () => {
                 className="
                 fixed bottom-5 right-5
                 bg-[hsl(216,30%,20%)]
+                opacity-60
+                hover:opacity-100
                 hover:bg-[hsl(215,33%,23%)]
                 p-2 rounded-full
                 "
