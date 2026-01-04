@@ -1,5 +1,4 @@
-/** biome-ignore-all lint/a11y/noStaticElementInteractions: <explanation> */
-import React from 'react'
+import { useState } from 'react'
 import { useTimerStore } from './useTimerStore';
 
 
@@ -10,6 +9,8 @@ const TimeMultiplier = () => {
 		hours
 	} = useTimerStore();
 
+	const [textToDisplay, setTextToDisplay] = useState('X2')
+
 
 	const DoubleOrIncreaseTheTime = () => {
 		let timeToAdd = 0;
@@ -17,10 +18,13 @@ const TimeMultiplier = () => {
 		if (hours < 2) {
 			timeToAdd = 60 * 60; // double the time
 			setMinutes(preMinutes => preMinutes?preMinutes * 2:preMinutes + 1); // add x2 minutes
+			setTextToDisplay('X2');
 		} else if (hours < 3) {
 			setMinutes(preMinutes => preMinutes + 6); // add 10 minutes
+			setTextToDisplay('+6');
 		} else if (hours >= 3) {
 			setMinutes(preMinutes => preMinutes + 1); // add 1 minutes
+			setTextToDisplay('+1');
 		}
 		console.log("time to add: ", timeToAdd)
 
@@ -39,8 +43,10 @@ const TimeMultiplier = () => {
 			hover:opacity-100
 			hover:text-[hsl(240,2%,90%)]
 			'
-			onClick={DoubleOrIncreaseTheTime}
-		>X2</div>
+		onClick={DoubleOrIncreaseTheTime}
+		>
+			{textToDisplay}
+		</div>
 	)
 }
 
