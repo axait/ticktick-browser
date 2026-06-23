@@ -18,7 +18,7 @@ const RemainingTimeInYear = ({ text, setVisiblityFn }: { text: string; setVisibl
         <>
             <div
                 className={`
-                absolute bottom-[-10px] left-[13vw]
+                absolute bottom-[-10px] left-[10vw]
                 bg-[#00000088] 
                 text-[16px] font-light
                 text-white

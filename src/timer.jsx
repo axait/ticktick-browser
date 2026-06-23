@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Counting from "./counting.jsx"
 import RemainingTimeInYear from "./RemainingTimeInYear.js";
 
-function getYearLeftPercentage(){
+function getYearSpentPercentage(){
     const now = new Date();
 
     const startOfYear = new Date(now.getFullYear(), 0, 1);
@@ -13,12 +13,12 @@ function getYearLeftPercentage(){
     const totalMs = startOfNextYear.getTime() - startOfYear.getTime();
     const remainingMs = startOfNextYear.getTime() - now.getTime();
 
-    return (remainingMs / totalMs) * 100;
+    return 100 - (remainingMs / totalMs) * 100;
 }
 
 
 function Timer() {
-    const [yearLeftPercentage, setYearLeftPercentage] = useState(0.0)
+    const [yearSpentPercentage, setYearSpentPercentage] = useState(getYearSpentPercentage())
     const [remainingTimeInYear, setRemainingTimeInYear] = useState('')
     const [remainingTimeInYearReactNode, setRemainingTimeInYearReactNode] = useState('')
     const [isVisibility, setIsVisibility] = useState(true);
@@ -26,7 +26,7 @@ function Timer() {
     
     useEffect(
         () => {
-            setYearLeftPercentage(getYearLeftPercentage());
+            setYearSpentPercentage(getYearSpentPercentage());
             calculateRemainingTimeInYearFn()
         }, []
     )
@@ -69,7 +69,8 @@ function Timer() {
                 <b className="text-yellow-500">{days}</b> &nbsp;Days &nbsp;
                 <b className="text-yellow-500">{hours}</b> &nbsp;Hours &nbsp;
                 <b className="text-yellow-500">{minutes}</b> &nbsp;Minutes &nbsp;
-                <b className="text-yellow-500">{seconds}</b> &nbsp;Seconds &nbsp;
+                <b className="text-yellow-500">{seconds}</b> &nbsp;Seconds or &nbsp;
+                <b className="text-yellow-500">{yearSpentPercentage.toFixed(1)}</b> &nbsp;% &nbsp;
             </>
         );
     }
@@ -99,7 +100,7 @@ function Timer() {
                 >Stop wasting your time. Go and learn to Revolute.
                 </h1>
                 <button
-                    className="h-[3.5rem] w-[12rem] 
+                    className="h-[3.5rem] w-[14rem] 
                 rounded-[10px] border-2 border-[black]
                 bg-[hsl(0,45%,50%)] 
                 hover:bg-[hsl(0,50%,54%)] 
@@ -109,7 +110,7 @@ function Timer() {
                     onClick={() => { calculateRemainingTimeInYearFn(); setIsVisibility(!isVisibility) }}
                     title={remainingTimeInYear}
 
-                >Year Left: <span className="text-[23px]"> {yearLeftPercentage.toFixed(1)}% </span> </button>
+                >Year Spent: <span className="text-[23px]"> {yearSpentPercentage.toFixed(1)}% </span> </button>
 
                 <Counting />
 
