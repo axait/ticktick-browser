@@ -4,13 +4,29 @@ import React, { useEffect, useState } from "react";
 import Counting from "./counting.jsx"
 import RemainingTimeInYear from "./RemainingTimeInYear.js";
 
+function getYearLeftPercentage(){
+    const now = new Date();
+
+    const startOfYear = new Date(now.getFullYear(), 0, 1);
+    const startOfNextYear = new Date(now.getFullYear() + 1, 0, 1);
+
+    const totalMs = startOfNextYear.getTime() - startOfYear.getTime();
+    const remainingMs = startOfNextYear.getTime() - now.getTime();
+
+    return (remainingMs / totalMs) * 100;
+}
+
+
 function Timer() {
+    const [yearLeftPercentage, setYearLeftPercentage] = useState(0.0)
     const [remainingTimeInYear, setRemainingTimeInYear] = useState('')
     const [remainingTimeInYearReactNode, setRemainingTimeInYearReactNode] = useState('')
     const [isVisibility, setIsVisibility] = useState(true);
-
+    
+    
     useEffect(
         () => {
+            setYearLeftPercentage(getYearLeftPercentage());
             calculateRemainingTimeInYearFn()
         }, []
     )
@@ -83,7 +99,7 @@ function Timer() {
                 >Stop wasting your time. Go and learn to Revolute.
                 </h1>
                 <button
-                    className="h-[3.5rem] w-[9rem] 
+                    className="h-[3.5rem] w-[12rem] 
                 rounded-[10px] border-2 border-[black]
                 bg-[hsl(0,45%,50%)] 
                 hover:bg-[hsl(0,50%,54%)] 
@@ -93,7 +109,7 @@ function Timer() {
                     onClick={() => { calculateRemainingTimeInYearFn(); setIsVisibility(!isVisibility) }}
                     title={remainingTimeInYear}
 
-                >Year Ends</button>
+                >Year Left: <span className="text-[23px]"> {yearLeftPercentage.toFixed(1)}% </span> </button>
 
                 <Counting />
 
