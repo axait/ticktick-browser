@@ -70,7 +70,7 @@ function Timer() {
                 <b className="text-yellow-500">{hours}</b> &nbsp;Hours &nbsp;
                 <b className="text-yellow-500">{minutes}</b> &nbsp;Minutes &nbsp;
                 <b className="text-yellow-500">{seconds}</b> &nbsp;Seconds or &nbsp;
-                <b className="text-yellow-500">{yearSpentPercentage.toFixed(1)}</b> &nbsp;% &nbsp;
+                <b className="text-yellow-500">{100 - yearSpentPercentage.toFixed(1)}</b> &nbsp;% &nbsp;
             </>
         );
     }
